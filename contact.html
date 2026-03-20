@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Cybersecurity Portfolio</title>
+    <title>Contact - Portfolio</title>
     <style>
         body {
             margin: 0;
@@ -44,6 +44,15 @@
         .footer a {
             color: #00ffad;
             text-decoration: underline;
+        }
+        .footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .footer .socials a {
+            text-decoration: none;
         }
         .cursor-droplet {
             position: fixed;
@@ -146,7 +155,12 @@
         </div>
     </section>
     <div class="footer">
-        © 2026 Philemon Samuel — <a href="https://github.com/philemonsami" target="_blank" rel="noopener">GitHub</a>
+        © 2026 Philemon Samuel
+        <div class="socials">
+            <a href="https://github.com/philemonsami" target="_blank" rel="noopener"><img src="https://github.githubassets.com/images/modules/site/icons/footer/github-logo.svg" alt="GitHub" width="24" height="24"></a>
+            <a href="https://www.linkedin.com/in/philemonsami/" target="_blank" rel="noopener"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="24" height="24"></a>
+            <a href="https://play.picoctf.org/users/batmanphile" target="_blank" rel="noopener"><img src="https://picoctf.org/static/img/logo.png" alt="PicoCTF" width="24" height="24"></a>
+        </div>
     </div>
     <script>
         document.body.addEventListener('mousemove', (event) => {
