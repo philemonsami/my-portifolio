@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intel - Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #02060b;
+            color: #00ffad;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            z-index: 1000;
+        }
+        nav a {
+            color: #00ffad;
+            margin: 0 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .footer {
+            width: 100%;
+            padding: 18px 10px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(0, 255, 173, 0.3);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(0, 255, 173, 0.8);
+        }
+        .footer a {
+            color: #00ffad;
+            text-decoration: underline;
+        }
+        .cursor-droplet {
+            position: fixed;
+            pointer-events: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 255, 173, 0.9);
+            box-shadow: 0 0 16px rgba(0, 255, 173, 0.8), 0 0 30px rgba(0, 122, 255, 0.45);
+            transform: translate(-50%, -50%) scale(0.9);
+            animation: trail 0.6s ease-out forwards;
+        }
+        @keyframes trail {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
+        }
+        section {
+            padding: 100px 20px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            max-width: 800px;
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 0.3rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Phili</a>
+        <a href="ops.html">Ops</a>
+        <a href="intel.html">Intel</a>
+        <a href="exploits.html">Exploits</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <section id="intel">
+        <p class="subtitle">Cod with purpose, Built to scale</p>
+        <h1>Intel</h1>
+        <p>Focused on cybersecurity, ethical hacking, and creative digital projects.</p>
+        <p>Philemon Samuel is an Ethiopian tech learner focused on cybersecurity, ethical hacking, and creative digital projects. He gained early recognition through CTF participation at INSA, where he developed strong problem-solving instincts and a mindset built around analysis and precision.</p>
+        <p>Using Kali Linux as his main lab, he studies system behavior, security fundamentals, and responsible vulnerability research.</p>
+        <p>Outside security, he experiments with futuristic, "wow-style" project ideas that blend creativity with tech logic. Philemon is young, driven, and building toward a future in cybersecurity and modern digital innovation.</p>
+    </section>
+    <div class="footer">
+        © 2026 Philemon Samuel — <a href="https://github.com/philemonsami" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <script>
+        document.body.addEventListener('mousemove', (event) => {
+            const dot = document.createElement('div');
+            dot.className = 'cursor-droplet';
+            dot.style.left = event.clientX + 'px';
+            dot.style.top = event.clientY + 'px';
+            document.body.appendChild(dot);
+            setTimeout(() => dot.remove(), 600);
+        });
+    </script>
+</body>
+</html>

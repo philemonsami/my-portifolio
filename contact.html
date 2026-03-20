@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Cybersecurity Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #02060b;
+            color: #00ffad;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            z-index: 1000;
+        }
+        nav a {
+            color: #00ffad;
+            margin: 0 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .footer {
+            width: 100%;
+            padding: 18px 10px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(0, 255, 173, 0.3);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(0, 255, 173, 0.8);
+        }
+        .footer a {
+            color: #00ffad;
+            text-decoration: underline;
+        }
+        .cursor-droplet {
+            position: fixed;
+            pointer-events: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 255, 173, 0.9);
+            box-shadow: 0 0 16px rgba(0, 255, 173, 0.8), 0 0 30px rgba(0, 122, 255, 0.45);
+            transform: translate(-50%, -50%) scale(0.9);
+            animation: trail 0.6s ease-out forwards;
+        }
+        @keyframes trail {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
+        }
+        section {
+            padding: 100px 20px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 0.3rem;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            margin-top: 40px;
+        }
+        .contact-item {
+            margin: 20px 0;
+        }
+        .contact-item h3 {
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .contact-item p {
+            margin: 5px 0;
+        }
+        .socials {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .socials a {
+            color: #00ffad;
+            text-decoration: none;
+            border: 1px solid #00ffad;
+            padding: 5px 10px;
+        }
+        .socials a:hover {
+            background: #00ffad;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Phili</a>
+        <a href="ops.html">Ops</a>
+        <a href="intel.html">Intel</a>
+        <a href="exploits.html">Exploits</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <section id="contact">
+        <p class="subtitle">You Dream It, I Code it then secure it </p>
+        <h1>Contact</h1>
+        <p>Got a question, project idea or exploit pipeline? Push a packet — I respond in 1 business cycle.</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>E-mail</h3>
+                <p>somebody4phili@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>Phone</h3>
+                <p>251-941-98-71-03</p>
+            </div>
+            <div class="contact-item">
+                <h3>Social Media</h3>
+                <div class="socials">
+                    <a href="https://github.com/philemonsami">GitHub</a>
+                    <a href="https://www.linkedin.com/in/philemonsami/">LinkedIn</a>
+                    <a href="https://play.picoctf.org/users/batmanphile">CTF Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer">
+        © 2026 Philemon Samuel — <a href="https://github.com/philemonsami" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <script>
+        document.body.addEventListener('mousemove', (event) => {
+            const dot = document.createElement('div');
+            dot.className = 'cursor-droplet';
+            dot.style.left = event.clientX + 'px';
+            dot.style.top = event.clientY + 'px';
+            document.body.appendChild(dot);
+            setTimeout(() => dot.remove(), 600);
+        });
+    </script>
+</body>
+</html>

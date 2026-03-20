@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phili - Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 20% 20%, #008060 10%, #02060b 45%);
+            color: #00ffad;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 10px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 173, 0.2);
+        }
+        nav a {
+            color: #00ffad;
+            margin: 0 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.07rem;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+        nav a:hover {
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        section {
+            padding: 100px 20px 60px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-size: clamp(2.6rem, 6vw, 4rem);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            border-right: 2px solid #00ffad;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 1s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #00ffad; }
+        }
+        p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin: 10px 0;
+            max-width: 70ch;
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 0.3rem;
+            margin-bottom: 20px;
+        }
+        .media-box {
+            width: min(95%, 920px);
+            margin-top: 28px;
+            border: 1px solid rgba(0, 255, 173, 0.22);
+            box-shadow: 0 0 45px rgba(0, 255, 173, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .media-box video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+        .footer {
+            width: 100%;
+            padding: 18px 10px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(0, 255, 173, 0.3);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(0, 255, 173, 0.8);
+        }
+        .footer a {
+            color: #00ffad;
+            text-decoration: underline;
+        }
+        .cursor-droplet {
+            position: fixed;
+            pointer-events: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 255, 173, 0.9);
+            box-shadow: 0 0 16px rgba(0, 255, 173, 0.8), 0 0 30px rgba(0, 122, 255, 0.45);
+            transform: translate(-50%, -50%) scale(0.9);
+            animation: trail 0.6s ease-out forwards;
+        }
+        @keyframes trail {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
+        }
+        @media (max-width: 768px) {
+            nav {
+                font-size: 12px;
+            }
+            .footer {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Phili</a>
+        <a href="ops.html">Ops</a>
+        <a href="intel.html">Intel</a>
+        <a href="exploits.html">Exploits</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <section id="phili">
+        <p class="subtitle">SYSTEM: PHILI ✱ KALI REALM</p>
+        <h1>PHILEMON<br>SAMUEL</h1>
+        <p>Attack surface hardening • blue team evasion • secure data exfiltration</p>
+        <p>CyberSecurity by night, code architect and highschool student by day — Philemon Samuel.</p>
+        <div class="media-box">
+            <video controls autoplay muted loop>
+                <source src="https://youtu.be/GX_XsdNv1PY?si=SvqMd40bLFFt7vXl" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+    <div class="footer">
+        © 2026 Philemon Samuel — <a href="https://github.com/philemonsami" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <script>
+        const body = document.body;
+        body.addEventListener('mousemove', (event) => {
+            const dot = document.createElement('div');
+            dot.className = 'cursor-droplet';
+            dot.style.left = event.clientX + 'px';
+            dot.style.top = event.clientY + 'px';
+
+            document.body.appendChild(dot);
+            setTimeout(() => dot.remove(), 600);
+        });
+
+        // Floating anti-gravity lines
+        const gravity = (x, y, vx, vy) => {
+            const d = Math.sqrt(x * x + y * y);
+            const force = Math.min(11 / (d + 25), 0.12);
+            const angle = Math.atan2(y, x);
+            return {
+                x: vx - force * Math.cos(angle),
+                y: vy - force * Math.sin(angle),
+            };
+        };
+
+        let particles = [];
+
+        function createParticle(e){
+            const p = document.createElement('div');
+            p.className = 'cursor-droplet';
+            p.style.left = e.clientX + 'px';
+            p.style.top = e.clientY + 'px';
+            p.dataset.vx = (Math.random() - 0.5) * 1.2;
+            p.dataset.vy = (Math.random() - 0.5) * 1.2;
+            p.dataset.life = 40;
+            document.body.appendChild(p);
+            particles.push(p);
+        }
+
+        window.addEventListener('mousemove', (e) => createParticle(e));
+
+        function animateParticles(){
+            particles = particles.filter(p => {
+                let vx = Number(p.dataset.vx);
+                let vy = Number(p.dataset.vy);
+                const rect = p.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2 - window.innerWidth / 2;
+                const centerY = rect.top + rect.height / 2 - window.innerHeight / 2;
+
+                ({x: vx, y: vy} = gravity(centerX, centerY, vx, vy));
+                p.dataset.vx = vx;
+                p.dataset.vy = vy;
+
+                p.style.left = (rect.left + vx) + 'px';
+                p.style.top = (rect.top + vy) + 'px';
+
+                let life = Number(p.dataset.life) - 1;
+                p.dataset.life = life;
+                if (life <= 0){
+                    p.remove();
+                    return false;
+                }
+                return true;
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        requestAnimationFrame(animateParticles);
+    </script>
+    <script>
+        const typewriterElement = document.getElementById('typewriter');
+        const text = 'PHILEMON SAMUEL';
+        let index = 0;
+        let isDeleting = false;
+        const typingSpeed = 150;
+        const deletingSpeed = 100;
+        const pauseTime = 2000;
+
+        function typeWriter() {
+            if (!isDeleting) {
+                typewriterElement.textContent = text.substring(0, index + 1);
+                index++;
+                if (index === text.length) {
+                    isDeleting = true;
+                    setTimeout(typeWriter, pauseTime);
+                    return;
+                }
+            } else {
+                typewriterElement.textContent = text.substring(0, index);
+                index--;
+                if (index === 0) {
+                    isDeleting = false;
+                }
+            }
+            setTimeout(typeWriter, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        typeWriter();
+    </script>
+</body>
+</html>
