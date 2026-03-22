@@ -1,138 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phili - Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: radial-gradient(circle at 20% 20%, #008060 10%, #02060b 45%);
-            color: #00ffad;
-            font-family: 'Courier New', monospace;
-            min-height: 100vh;
-            overflow-x: hidden;
-            cursor: crosshair;
-        }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 10px;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 255, 173, 0.2);
-        }
-        nav a {
-            color: #00ffad;
-            margin: 0 15px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 0.07rem;
-            transition: color 0.25s ease, transform 0.25s ease;
-        }
-        nav a:hover {
-            color: #fff;
-            transform: translateY(-1px);
-        }
-        section {
-            padding: 100px 20px 60px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-        h1 {
-            font-size: clamp(2.6rem, 6vw, 4rem);
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            border-right: 2px solid #00ffad;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: blink-caret 1s step-end infinite;
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #00ffad; }
-        }
-        p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            margin: 10px 0;
-            max-width: 70ch;
-        }
-        .subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 0.3rem;
-            margin-bottom: 20px;
-        }
-        .media-box {
-            width: min(95%, 920px);
-            margin-top: 28px;
-            border: 1px solid rgba(0, 255, 173, 0.22);
-            box-shadow: 0 0 45px rgba(0, 255, 173, 0.2);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .media-box video {
-            width: 100%;
-            display: block;
-            background: #000;
-        }
-        .footer {
-            width: 100%;
-            padding: 18px 10px;
-            margin-top: 60px;
-            border-top: 1px solid rgba(0, 255, 173, 0.3);
-            text-align: center;
-            font-size: 0.9rem;
-            color: rgba(0, 255, 173, 0.8);
-        }
-        .footer a {
-            color: #00ffad;
-            text-decoration: underline;
-        }
-        .footer .socials {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        .footer .socials a {
-            text-decoration: none;
-        }
-        .cursor-droplet {
-            position: fixed;
-            pointer-events: none;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(0, 255, 173, 0.9);
-            box-shadow: 0 0 16px rgba(0, 255, 173, 0.8), 0 0 30px rgba(0, 122, 255, 0.45);
-            transform: translate(-50%, -50%) scale(0.9);
-            animation: trail 0.6s ease-out forwards;
-        }
-        @keyframes trail {
-            0% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
-        }
-        @media (max-width: 768px) {
-            nav {
-                font-size: 12px;
-            }
-            .footer {
-                font-size: 0.85rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Philemon Samuel - Cybersecurity professional, ethical hacker, and code architect. Certified Web Pentester, CTF competitor, and Python learner.">
+  <title>Phili - Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0c10;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #eef2ff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 100px 1.5rem 2rem;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 10px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+    }
+    nav a {
+      color: #64ffda;
+      margin: 0 15px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.07rem;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+    nav a:hover {
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    nav a:hover {
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      margin-bottom: 4rem;
+      background: radial-gradient(circle at 20% 30%, rgba(30, 40, 60, 0.5), transparent);
+      padding: 1.5rem 0;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #ffffff, #a0f0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #b4c2da;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .media-box {
+      width: min(95%, 920px);
+      margin-top: 28px;
+      border: 1px solid rgba(100, 255, 218, 0.22);
+      box-shadow: 0 0 45px rgba(100, 255, 218, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .media-box img {
+      width: 100%;
+      display: block;
+    }
+
+    .footer {
+      width: 100%;
+      padding: 18px 10px;
+      margin-top: 20px;
+      border-top: 1px solid rgba(100, 255, 218, 0.3);
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(100, 255, 218, 0.8);
+    }
+    .footer a {
+      color: #64ffda;
+      text-decoration: underline;
+    }
+    .footer .socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .footer .socials a {
+      text-decoration: none;
+    }
+
+    .cursor-droplet {
+      position: fixed;
+      pointer-events: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(100, 255, 218, 0.9);
+      box-shadow: 0 0 16px rgba(100, 255, 218, 0.8), 0 0 30px rgba(0, 122, 255, 0.45);
+      transform: translate(-50%, -50%) scale(0.9);
+      animation: trail 0.6s ease-out forwards;
+    }
+
+    @keyframes trail {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        padding: 100px 1.5rem 2rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      nav {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <nav>
         <a href="index.html">Phili</a>
         <a href="ops.html">Ops</a>
@@ -140,65 +152,40 @@
         <a href="exploits.html">Exploits</a>
         <a href="contact.html">Contact</a>
     </nav>
-    <section id="phili">
-        <p class="subtitle">SYSTEM: PHILI ✱ KALI REALM</p>
-        <h1>PHILEMON<br>SAMUEL</h1>
-        <p>Attack surface hardening • blue team evasion • secure data exfiltration</p>
-        <p>CyberSecurity by night, code architect and highschool student by day — Philemon Samuel.</p>
-        <p>Certified Web Pentester • CTF Competitor • Python Learner</p>
-        <div class="media-box">
-            <img src="insagraduation.jpg" alt="INSA Ethical Hacker Certification" style="width: 100%; display: block;">
-        </div>
-    </section>
-    <div class="footer">
-        © 2026 Philemon Samuel
-        <div class="socials">
-            <a href="https://github.com/philemonsami" target="_blank" rel="noopener"><img src="https://cdn.worldvectorlogo.com/logos/github-icon.svg" alt="GitHub" width="24" height="24"></a>
-            <a href="https://www.linkedin.com/in/philemonsami/" target="_blank" rel="noopener"><img src="https://cdn.worldvectorlogo.com/logos/linkedin-icon.svg" alt="LinkedIn" width="24" height="24"></a>
-            <a href="https://play.picoctf.org/users/batmanphile" target="_blank" rel="noopener"><img src="https://picoctf.org/static/img/logo.png" alt="PicoCTF" width="24" height="24"></a>
-        </div>
+
+    <div class="hero">
+      <p class="subtitle" style="font-size: 0.9rem; letter-spacing: 0.3rem; margin-bottom: 20px; color: #64ffda;">SYSTEM: PHILI ✱ KALI REALM</p>
+      <h1>PHILEMON<br>SAMUEL</h1>
+      <p>Attack surface hardening • blue team evasion • secure data exfiltration</p>
+      <p>CyberSecurity by night, code architect and highschool student by day — Philemon Samuel.</p>
+      <p>Certified Web Pentester • CTF Competitor • Python Learner</p>
+      <div class="media-box">
+        <img src="insagraduation.jpg" alt="INSA Ethical Hacker Certification">
+      </div>
     </div>
 
-    <script>
-        const body = document.body;
-        body.addEventListener('mousemove', (event) => {
-            const dot = document.createElement('div');
-            dot.className = 'cursor-droplet';
-            dot.style.left = event.clientX + 'px';
-            dot.style.top = event.clientY + 'px';
+    <div class="footer">
+      © 2026 Philemon Samuel
+      <div class="socials">
+        <a href="https://github.com/philemonsami" target="_blank" rel="noopener"><img src="https://cdn.worldvectorlogo.com/logos/github-icon.svg" alt="GitHub" width="24" height="24"></a>
+        <a href="https://www.linkedin.com/in/philemonsami/" target="_blank" rel="noopener"><img src="https://cdn.worldvectorlogo.com/logos/linkedin-icon.svg" alt="LinkedIn" width="24" height="24"></a>
+        <a href="https://play.picoctf.org/users/batmanphile" target="_blank" rel="noopener"><img src="https://picoctf.org/static/img/logo.png" alt="PicoCTF" width="24" height="24"></a>
+      </div>
+    </div>
+  </div>
 
-            document.body.appendChild(dot);
-            setTimeout(() => dot.remove(), 600);
-        });
-        
-        const gravity = (x, y, vx, vy) => {
-            const d = Math.sqrt(x * x + y * y);
-            const force = Math.min(11 / (d + 25), 0.12);
-            const angle = Math.atan2(y, x);
-            return {
-                x: vx - force * Math.cos(angle),
-                y: vy - force * Math.sin(angle),
-            };
-        };
-
-        let particles = [];
-
-        function createParticle(e){
-            const p = document.createElement('div');
-            p.className = 'cursor-droplet';
-            p.style.left = e.clientX + 'px';
-            p.style.top = e.clientY + 'px';
-            p.dataset.vx = (Math.random() - 0.5) * 1.2;
-            p.dataset.vy = (Math.random() - 0.5) * 1.2;
-            p.dataset.life = 40;
-            document.body.appendChild(p);
-            particles.push(p);
-        }
-
-        window.addEventListener('mousemove', (e) => createParticle(e));
-
-        function animateParticles(){
-            particles = particles.filter(p => {
+  <script>
+    document.body.addEventListener('mousemove', (event) => {
+      const dot = document.createElement('div');
+      dot.className = 'cursor-droplet';
+      dot.style.left = event.clientX + 'px';
+      dot.style.top = event.clientY + 'px';
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 600);
+    });
+  </script>
+</body>
+</html>
                 let vx = Number(p.dataset.vx);
                 let vy = Number(p.dataset.vy);
                 const rect = p.getBoundingClientRect();
