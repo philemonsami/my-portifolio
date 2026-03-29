@@ -1,3 +1,138 @@
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ccf6ff;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+  font-size: 1.08rem;
+  width: 70%;
+  caret-color: #64ffda;
+  padding: 0.1rem 0.2rem;
+  margin-left: 0.2rem;
+  letter-spacing: 0.01rem;
+  transition: background 0.2s;
+}
+.terminal-input:focus {
+  background: rgba(100,255,218,0.07);
+  border-radius: 4px;
+}
+.terminal-cmd {
+  color: #64ffda;
+  font-family: inherit;
+  font-weight: 600;
+}
+/* Kali Terminal Section Styles */
+.kali-terminal-section {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 2rem 0;
+}
+
+.kali-terminal {
+  background: #181c23;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 2px #222b36;
+  max-width: 600px;
+  width: 100%;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+  color: #ccf6ff;
+  overflow: hidden;
+  border: 1.5px solid #222b36;
+}
+
+.kali-terminal .terminal-header {
+  background: #232a34;
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-bottom: 1px solid #222b36;
+}
+.kali-terminal .btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.3rem;
+}
+.kali-terminal .btn.red { background: #ff5f56; }
+.kali-terminal .btn.yellow { background: #ffbd2e; }
+.kali-terminal .btn.green { background: #27c93f; }
+.kali-terminal .title {
+  color: #64ffda;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 0.7rem;
+}
+
+.kali-terminal .terminal-body {
+  background: #10141a;
+  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+  min-height: 320px;
+  font-size: 1.08rem;
+}
+.kali-terminal .terminal-line {
+  margin-bottom: 0.5rem;
+  color: #64ffda;
+  font-weight: 500;
+  font-size: 1.05rem;
+  font-family: inherit;
+}
+.kali-terminal .prompt {
+  color: #00e0c6;
+  font-weight: bold;
+  margin-right: 0.3rem;
+}
+.kali-terminal .terminal-output {
+  margin-bottom: 1.1rem;
+  margin-left: 1.5rem;
+  color: #ccf6ff;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.kali-terminal .terminal-link {
+  color: #64ffda;
+  text-decoration: underline;
+  margin-right: 1.2rem;
+  font-size: 1.01rem;
+  transition: color 0.2s;
+}
+.kali-terminal .terminal-link:hover {
+  color: #fff;
+}
+.kali-terminal .terminal-cert {
+  max-width: 220px;
+  border-radius: 10px;
+  border: 1.5px solid #64ffda;
+  margin-bottom: 0.3rem;
+}
+.kali-terminal .cert-label {
+  color: #b8c7e5;
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+}
+.kali-terminal .terminal-video {
+  max-width: 350px;
+  border-radius: 10px;
+  border: 1.5px solid #64ffda;
+  margin-bottom: 0.3rem;
+}
+.kali-terminal .terminal-profile {
+  max-width: 120px;
+  border-radius: 50%;
+  border: 1.5px solid #64ffda;
+}
+.kali-terminal .blinking-cursor {
+  color: #64ffda;
+  font-weight: bold;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
 * {
   margin: 0;
   padding: 0;

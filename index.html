@@ -24,11 +24,6 @@
   <div class="container">
     <div class="hero" id="about">
 
-      <div id="terminal-nav" class="internal-nav">
-        <a href="#about" class="sys-link">[root@about:~]#</a>
-        <a href="#projects" class="sys-link">[root@projects:~]#</a>
-        <a href="#media" class="sys-link">[root@media:~]#</a>
-      </div>
 
       <div class="badge">⚡ SYSTEM: PHILI // KALI REALM</div>
       <h1 id="typewriter" class="hacker-text" data-value=""></h1>
@@ -40,23 +35,25 @@
       </div>
     </div>
 
+
     
-    <div class="terminal-container" id="terminal">
-      <div class="terminal-window">
+    <section class="kali-terminal-section">
+      <div class="kali-terminal">
         <div class="terminal-header">
           <span class="btn red"></span>
           <span class="btn yellow"></span>
           <span class="btn green"></span>
           <span class="title">kali@phili: ~</span>
         </div>
-        <div class="terminal-body" id="term-body">
-          <p><span class="prompt">kali@phili:~$</span> whoami</p>
-          <p class="output">philemon_samuel<br>role: offensive_security_architect<br>status: highly_motivated</p>
-          <p><span class="prompt">kali@phili:~$</span> ./check_skills.sh</p>
-          <p class="output blink-cursor" id="term-type"></p>
+        <div class="terminal-body kali-anim" id="interactive-terminal">
+          <div id="terminal-log"></div>
+          <form id="terminal-form" autocomplete="off" onsubmit="return false;">
+            <span class="prompt">kali@phili:~$</span>
+            <input id="terminal-input" class="terminal-input" type="text" autofocus placeholder="Type a command..." />
+          </form>
         </div>
       </div>
-    </div>
+    </section>
 
     <div class="section-title" id="projects">🔍 explore my work</div>
     <div class="link-grid">
@@ -80,6 +77,7 @@
   </div>
 
   <script>
+    
     const text = "PHILEMON SAMUEL";
     let i = 0;
     let isDeleting = false;
@@ -107,6 +105,78 @@
       }
     }
     typeEffect();
+
+
+    const terminalLog = document.getElementById('terminal-log');
+    const terminalForm = document.getElementById('terminal-form');
+    const terminalInput = document.getElementById('terminal-input');
+
+
+    const commands = {
+      help: `Available commands:<br>
+        <span class="terminal-cmd">ls</span> - List files<br>
+        <span class="terminal-cmd">cat [file]</span> - Show file content (about.txt, certs.txt, links.txt, profile.txt)<br>
+        <span class="terminal-cmd">wget [url]</span> - Download (open) a portfolio link<br>
+        <span class="terminal-cmd">video</span> - Play intro video<br>
+        <span class="terminal-cmd">clear</span> - Clear terminal<br>
+        <span class="terminal-cmd">help</span> or <span class="terminal-cmd">--help</span> - Show this help` ,
+      '--help': null, 
+      ls: `about.txt  certs.txt  links.txt  profile.txt`,
+      'cat about.txt': `Philemon Samuel is a cybersecurity learner, CTF competitor, and code architect. Passionate about ethical hacking, system defense, and creative digital projects.`,
+      'cat certs.txt': `<img src="insagraduation.jpg" alt="INSA Graduation Certificate" class="terminal-cert"><br><span class="cert-label">INSA Ethical Hacker Certification</span>`,
+      'cat links.txt': `<a href="ops.html" class="terminal-link">🛠️ Offensive Ops</a> <a href="intel.html" class="terminal-link">📡 Threat Intel</a> <a href="exploits.html" class="terminal-link">💀 Exploit Database</a> <a href="contact.html" class="terminal-link">📬 Connect</a>`,
+      'cat profile.txt': `<img src="insagraduation.jpg" alt="Profile" class="terminal-profile">`,
+      video: `<video src="cybernotice.mp4" controls class="terminal-video" poster="insagraduation.jpg"></video>`,
+      clear: 'clear',
+      
+      'wget ops.html': `<span class="terminal-cmd">[+] Downloading:</span> <a href="ops.html" class="terminal-link">ops.html</a>`,
+      'wget intel.html': `<span class="terminal-cmd">[+] Downloading:</span> <a href="intel.html" class="terminal-link">intel.html</a>`,
+      'wget exploits.html': `<span class="terminal-cmd">[+] Downloading:</span> <a href="exploits.html" class="terminal-link">exploits.html</a>`,
+      'wget contact.html': `<span class="terminal-cmd">[+] Downloading:</span> <a href="contact.html" class="terminal-link">contact.html</a>`,
+    };
+    commands['--help'] = commands.help;
+
+    function printToTerminal(html) {
+      const div = document.createElement('div');
+      div.className = 'terminal-output';
+      div.innerHTML = html;
+      terminalLog.appendChild(div);
+      terminalLog.scrollTop = terminalLog.scrollHeight;
+    }
+
+    terminalForm.addEventListener('submit', function() {
+      const value = terminalInput.value.trim();
+      if (!value) return;
+      const line = document.createElement('div');
+      line.className = 'terminal-line';
+      line.innerHTML = `<span class="prompt">kali@phili:~$</span> ${value}`;
+      terminalLog.appendChild(line);
+
+      if (commands[value]) {
+        if (commands[value] === 'clear') {
+          terminalLog.innerHTML = '';
+        } else {
+          printToTerminal(commands[value]);
+        }
+      } else {
+        printToTerminal(`Command not found. Type <span class="terminal-cmd">help</span> for available commands.`);
+      }
+      terminalInput.value = '';
+      terminalLog.scrollTop = terminalLog.scrollHeight;
+    });
+
+    
+    terminalInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        terminalForm.dispatchEvent(new Event('submit'));
+      }
+    });
+
+   
+    setInterval(() => {
+      const input = document.getElementById('terminal-input');
+      if (input) input.classList.toggle('blinking-cursor');
+    }, 700);
 
     document.body.addEventListener('mousemove', (e) => {
       const dot = document.createElement('div');
