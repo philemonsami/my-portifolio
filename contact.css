@@ -22,26 +22,27 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(8px);
-      padding: 10px;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 0.9rem 2rem;
       z-index: 1000;
-      border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+      border-bottom: 1px solid rgba(100, 255, 218, 0.25);
       display: flex;
       justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
     nav a {
-      color: #64ffda;
-      margin: 0 15px;
+      color: #ccf6ff;
       text-decoration: none;
-      text-transform: uppercase;
-      font-weight: bold;
+      font-weight: 600;
       letter-spacing: 0.07rem;
-      transition: color 0.25s ease, transform 0.25s ease;
+      transition: color 0.2s ease, transform 0.2s ease;
+      font-size: 1rem;
     }
     nav a:hover {
-      color: #fff;
-      transform: translateY(-1px);
+      color: #64ffda;
+      transform: translateY(-2px);
     }
 
     .hero {
