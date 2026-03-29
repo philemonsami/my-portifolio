@@ -98,8 +98,8 @@ Phone: +251 941 987 103
 Student: Philemon Samuel
 Grade: 11A
 School: Akaki Adventist School
-Instructor: [Enter teacher name]
-Course: IT / Web Design
+Instructor: Teacher Shambel Fita
+Course:  Web Design
 Submission Date: March 2026
 📄 License
 
