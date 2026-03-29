@@ -1,8 +1,7 @@
-// hacker-effects.js
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Text Decryption / Scramble Effect
+
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#%@!&^*';
     const hackerElements = document.querySelectorAll('.hacker-text');
     
@@ -27,11 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         el.addEventListener('mouseenter', scramble);
-        // Initial trigger
+        
         setTimeout(scramble, 500);
     });
 
-    // 2. Matrix Digital Rain Background (Index page mainly)
+    
     const canvas = document.getElementById('matrix-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -67,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Mock Terminal Typer
+    
     const termType = document.getElementById('term-type');
     if (termType) {
         const typeText = "Loading skills database...\n[OK] Web Exploitation\n[OK] Network Forensics\n[OK] Python Automation\n[OK] Reverse Engineering\n> AWAITING COMMAND";
@@ -81,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     }
 
-    // 4. Smooth internal scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();

@@ -26,13 +26,11 @@
 
 
       <div class="badge">⚡ SYSTEM: PHILI // KALI REALM</div>
-      <h1 id="typewriter" class="hacker-text" data-value=""></h1>
+      <h1 id="typewriter" class="hacker-text" data-value="PHILEMON SAMUEL">PHILEMON SAMUEL</h1>
       <p>Attack surface hardening • blue team evasion • secure data exfiltration</p>
       <p>CyberSecurity by night, code architect and highschool student by day — Philemon Samuel.</p>
       <div class="cert-badge">🎓 Certified Web Pentester • CTF Competitor • Python Learner</div>
-      <div class="media-box glitch-wrapper" id="media">
-        <img src="insagraduation.jpg" alt="INSA Ethical Hacker Certification" class="glitch-img">
-      </div>
+
     </div>
 
 
@@ -63,6 +61,59 @@
       <a href="contact.html" class="quick-link">📬 Connect</a>
     </div>
 
+    <div class="security-disclosure">
+      <button class="disclosure-toggle" onclick="document.getElementById('disclosure-content').classList.toggle('show')">Is my portfolio website vulnerable?</button>
+      <div id="disclosure-content" class="disclosure-content">
+        <h2>Responsible Disclosure Policy – Philemon Samuel Portfolio</h2>
+        <div class="disclosure-date"><b>Last updated:</b> March 29, 2026</div>
+        <p>I take the security of my portfolio site seriously. If you’ve discovered a security vulnerability, I appreciate your help disclosing it to me privately so I can verify and address it before any public disclosure.</p>
+        <h3>Scope</h3>
+        <ul>
+          <li><b>https://philportifolio.netlify.app/</b> and all its subpages</li>
+          <li>Any static or dynamic content hosted under this domain (including contact forms, if any)</li>
+        </ul>
+        <div class="disclosure-out">Out of scope:<br>
+          <ul>
+            <li>Third-party services embedded (e.g., GitHub Gists, YouTube videos) – please report those to the respective vendor.</li>
+            <li>Social engineering, physical attacks, or DDoS testing.</li>
+          </ul>
+        </div>
+        <h3>Guidelines</h3>
+        <ul>
+          <li><b>Do not</b> access, modify, or delete data that isn’t your own.</li>
+          <li><b>Do not</b> use automated scanners that generate high traffic without prior notice.</li>
+          <li><b>Do not</b> share the vulnerability publicly before I’ve had a chance to fix it.</li>
+          <li><b>Provide clear steps</b> to reproduce the issue (screenshots or PoC code are welcome).</li>
+        </ul>
+        <h3>How to Report</h3>
+        <p>Send an email to: <b>security@philportifolio.netlify.app or simply click this link <a  class="contact-link" href="contact.html">Contact Me</a></b><br></p>
+        
+        <ul>
+          <li>A descriptive subject line (e.g., “Security issue on portfolio contact page”)</li>
+          <li>Affected URL</li>
+          <li>Type of issue (XSS, CSP bypass, insecure redirect, etc.)</li>
+          <li>Steps to reproduce</li>
+          <li>Potential impact</li>
+        </ul>
+        <p>I will acknowledge receipt within <b>3 business days</b>.</p>
+        <h3>What to Expect</h3>
+        <ul>
+          <li>I will investigate and confirm the vulnerability.</li>
+          <li>I will work to fix it as soon as possible (typically within 7–14 days).</li>
+          <li>I will not take legal action against you if you follow this policy.</li>
+          <li>I will credit you on this page (with your consent) after the fix is deployed.</li>
+        </ul>
+        <h3>Safe Harbor</h3>
+        <p>Any act performed in good faith according to this policy is considered authorized, and I will not pursue legal action against you.</p>
+        <hr>
+        <div class="disclosure-thanks"><b>Thank you for helping keep this small corner of the web secure.</b></div>
+      </div>
+    </div>
+    <div class="resume-download">
+      <a href="resume.pdf" download class="resume-btn">
+        <span class="resume-icon">📄</span> Download My Resume
+      </a>
+    </div>
     <div class="footer">
       © 2026 Philemon Samuel · security mindset
       <div class="socials">
@@ -71,36 +122,21 @@
         <a href="https://www.linkedin.com/in/philemonsami/" target="_blank" rel="noopener"><img
             src="https://cdn.worldvectorlogo.com/logos/linkedin-icon.svg" alt="LinkedIn" width="24" height="24"></a>
         <a href="https://play.picoctf.org/users/batmanphile" target="_blank" rel="noopener"><img
-            src="https://picoctf.org/static/img/logo.png" alt="PicoCTF" width="24" height="24"></a>
+            src="picoctf.png" alt="PicoCTF" width="24" height="24"></a>
       </div>
     </div>
   </div>
 
   <script>
     
-    const text = "PHILEMON SAMUEL";
+    const text = "Access denied";
     let i = 0;
-    let isDeleting = false;
     const typingSpeed = 120;
-    const deleteSpeed = 80;
-    const pause = 2000;
     const el = document.getElementById("typewriter");
     function typeEffect() {
-      if (!isDeleting && i <= text.length) {
+      if (i <= text.length) {
         el.textContent = text.substring(0, i);
         i++;
-        setTimeout(typeEffect, typingSpeed);
-      } else if (isDeleting && i >= 0) {
-        el.textContent = text.substring(0, i);
-        i--;
-        setTimeout(typeEffect, deleteSpeed);
-      } else if (i === text.length + 1) {
-        isDeleting = true;
-        setTimeout(typeEffect, pause);
-      } else if (i === 0 && isDeleting) {
-        isDeleting = false;
-        setTimeout(typeEffect, typingSpeed);
-      } else {
         setTimeout(typeEffect, typingSpeed);
       }
     }
@@ -110,31 +146,244 @@
     const terminalLog = document.getElementById('terminal-log');
     const terminalForm = document.getElementById('terminal-form');
     const terminalInput = document.getElementById('terminal-input');
-
+   
+    let vfsPath = '/';
+    const vfs = {
+      '/': ['about.txt', 'certs.txt', 'profile.txt', 'graduation-files', "Phil's_works/"],
+      "/Phil's_works/": [
+        '<a href="exploits.html#ctf-challenge-solutions" class="terminal-link">ctf-challenge-solutions</a>',
+        '<a href="exploits.html#ciphergravity-samuel-toolkit" class="terminal-link">ciphergravity-samuel-toolkit</a>',
+        '<a href="exploits.html#secure-chat-application" class="terminal-link">secure-chat</a>',
+        '<a href="exploits.html#" class="terminal-link"></a>',
+        '<a href="exploits.html#password-cracker-tool" class="terminal-link">password-cracker-tool</a>',
+        '<a href="exploits.html#web-application-firewall-bypass" class="terminal-link">waf-bypass</a>'
+      ],
+      "/Phil's_works/ctf-challenge-solutions/": [
+        'details.txt',
+        'wget ctf-challenge-solutions'
+      ],
+      "/Phil's_works/ciphergravity-samuel-toolkit/": [
+        'details.txt',
+        'wget ciphergravity-samuel-toolkit'
+      ],
+      "/Phil's_works/secure-chat/": [
+        'details.txt',
+        'wget secure-chat'
+      ],
+      "/Phil's_works//": [
+        'details.txt',
+        'wget network-intrusion-detection'
+      ],
+      "/Phil's_works/password-cracker-tool/": [
+        'details.txt',
+        'wget password-cracker-tool'
+      ],
+      "/Phil's_works/waf-bypass/": [
+        'details.txt',
+        'wget waf-bypass'
+      ]
+    };
+    const projectDetails = {
+      'ctf-challenge-solutions': `Writeups and solutions for Capture The Flag challenges, including web exploitation, cryptography, and forensics. <a href="exploits.html#ctf-challenge-solutions" class="terminal-link">Go to section</a>`,
+      'vulnerability-scanner': `A custom tool for scanning web applications for common vulnerabilities like SQL injection and XSS. <a href="exploits.html#vulnerability-scanner" class="terminal-link">Go to section</a>`,
+      'secure-chat': `An end-to-end encrypted chat app with focus on secure communication protocols. <a href="exploits.html#secure-chat-application" class="terminal-link">Go to section</a>`,
+      'ids': `A simple IDS system to detect and alert on suspicious network traffic patterns. <a href="exploits.html#network-intrusion-detection" class="terminal-link">Go to section</a>`,
+      'password-cracker-tool': `Educational tool for demonstrating password security, using brute force and dictionary attacks. <a href="exploits.html#password-cracker-tool" class="terminal-link">Go to section</a>`,
+      'waf-bypass': `Research and demonstrations on bypassing common WAF protections ethically. <a href="exploits.html#web-application-firewall-bypass" class="terminal-link">Go to section</a>`
+    };
 
     const commands = {
-      help: `Available commands:<br>
-        <span class="terminal-cmd">ls</span> - List files<br>
-        <span class="terminal-cmd">cat [file]</span> - Show file content (about.txt, certs.txt, links.txt, profile.txt)<br>
-        <span class="terminal-cmd">wget [url]</span> - Download (open) a portfolio link<br>
-        <span class="terminal-cmd">video</span> - Play intro video<br>
-        <span class="terminal-cmd">clear</span> - Clear terminal<br>
-        <span class="terminal-cmd">help</span> or <span class="terminal-cmd">--help</span> - Show this help` ,
-      '--help': null, 
-      ls: `about.txt  certs.txt  links.txt  profile.txt`,
-      'cat about.txt': `Philemon Samuel is a cybersecurity learner, CTF competitor, and code architect. Passionate about ethical hacking, system defense, and creative digital projects.`,
-      'cat certs.txt': `<img src="insagraduation.jpg" alt="INSA Graduation Certificate" class="terminal-cert"><br><span class="cert-label">INSA Ethical Hacker Certification</span>`,
-      'cat links.txt': `<a href="ops.html" class="terminal-link">🛠️ Offensive Ops</a> <a href="intel.html" class="terminal-link">📡 Threat Intel</a> <a href="exploits.html" class="terminal-link">💀 Exploit Database</a> <a href="contact.html" class="terminal-link">📬 Connect</a>`,
-      'cat profile.txt': `<img src="insagraduation.jpg" alt="Profile" class="terminal-profile">`,
+      help: `<div style='font-family:monospace; color:#ccf6ff;'>
+    <span style='color:#64ffda;'>Kali Terminal Portfolio Help</span>
+    <br><br>
+    <span style='color:#64ffda;'>USAGE FLOW:</span><br>
+    1. <span class='terminal-cmd'>ls</span> — List files and folders in the current directory.<br>
+    2. <span class='terminal-cmd'>cd Phil's_works</span> — Enter the main projects folder.<br>
+    3. <span class='terminal-cmd'>ls</span> — See all available projects.<br>
+    4. <span class='terminal-cmd'>cd project-name</span> — Enter a specific project (e.g., <span class='terminal-cmd'>cd vulnerability-scanner</span>).<br>
+    5. <span class='terminal-cmd'>ls</span> — See <span class='terminal-cmd'>details.txt</span> and <span class='terminal-cmd'>wget project-name</span>.<br>
+    6. <span class='terminal-cmd'>cat details.txt</span> — Read about the project.<br>
+    7. <span class='terminal-cmd'>wget project-name</span> — Get the GitHub repo link for the project.<br>
+    8. <span class='terminal-cmd'>cd ..</span> — Go up one directory.<br>
+    <br>
+    <span style='color:#64ffda;'>COMMANDS:</span><br>
+    <span class='terminal-cmd'>ls</span> — List files/folders<br>
+    <span class='terminal-cmd'>cd [folder]</span> — Change directory<br>
+    <span class='terminal-cmd'>cat [file]</span> — Show file content<br>
+    <span class='terminal-cmd'>wget [project]</span> — Get project GitHub repo<br>
+    <span class='terminal-cmd'>video</span> — Play intro video<br>
+    <span class='terminal-cmd'>clear</span> — Clear terminal<br>
+    <span class='terminal-cmd'>help</span> or <span class='terminal-cmd'>--help</span> — Show this help<br>
+    <br>
+    <span style='color:#64ffda;'>EXAMPLES:</span><br>
+    <span class='terminal-cmd'>ls</span><br>
+    <span class='terminal-cmd'>cd Phil's_works</span><br>
+    <span class='terminal-cmd'>ls</span><br>
+    <span class='terminal-cmd'>cd vulnerability-scanner</span><br>
+    <span class='terminal-cmd'>ls</span><br>
+    <span class='terminal-cmd'>cat details.txt</span><br>
+    <span class='terminal-cmd'>wget vulnerability-scanner</span><br>
+    </div>` ,
+      '--help': null,
       video: `<video src="cybernotice.mp4" controls class="terminal-video" poster="insagraduation.jpg"></video>`,
       clear: 'clear',
-      
-      'wget ops.html': `<span class="terminal-cmd">[+] Downloading:</span> <a href="ops.html" class="terminal-link">ops.html</a>`,
-      'wget intel.html': `<span class="terminal-cmd">[+] Downloading:</span> <a href="intel.html" class="terminal-link">intel.html</a>`,
-      'wget exploits.html': `<span class="terminal-cmd">[+] Downloading:</span> <a href="exploits.html" class="terminal-link">exploits.html</a>`,
-      'wget contact.html': `<span class="terminal-cmd">[+] Downloading:</span> <a href="contact.html" class="terminal-link">contact.html</a>`,
     };
     commands['--help'] = commands.help;
+
+    function getLsOutput() {
+     
+      if (vfsPath === "/Phil's_works/") {
+        return vfs[vfsPath].join('  ');
+      }
+     
+      return vfs[vfsPath] ? vfs[vfsPath].map(f => {
+        if (f.endsWith('/')) {
+          return `<span class='terminal-folder'>${f}</span>`;
+        } else {
+          return `<span class='terminal-file'>${f}</span>`;
+        }
+      }).join('  ') : '';
+    }
+
+    function handleCd(arg) {
+      if (!arg) return 'Usage: cd [folder]';
+      if (arg === '..') {
+        if (vfsPath === '/') return '';
+        vfsPath = vfsPath.replace(/[^/]+\/?$/, '');
+        if (vfsPath === '') vfsPath = '/';
+        return '';
+      }
+      let target = arg;
+      if (!target.endsWith('/')) target += '/';
+      let newPath = vfsPath === '/' ? '/' + target : vfsPath + target;
+      if (vfs[newPath]) {
+        vfsPath = newPath;
+        return '';
+      } else {
+        return `No such directory: ${arg}`;
+      }
+    }
+
+    function handleCat(arg) {
+      if (!arg) return 'Usage: cat [file]';
+      if (vfsPath === '/') {
+        if (arg === 'about.txt') return `<div style='font-family:monospace; color:#ccf6ff;'>
+      <b>about.txt</b><br>
+      Philemon Samuel is a cybersecurity learner, CTF competitor, and web developer. Passionate about ethical hacking, secure coding, and building creative tech. INSA graduate, always learning.<br><br>
+      Skills: HTML, CSS, Python, Linux, CTFs, Web Security.<br>
+      Certifications: Red Fox, TryHackMe, Python, BlackHat.<br>
+      Contact: somebody4phili@gmail.com
+      </div>`;
+        if (arg === 'certs.txt') {
+          return `<div class='terminal-certs-gallery'>
+            <div class='terminal-cert-card'>
+              <img src='refoxcert.png' alt='Red Fox Certification' class='terminal-cert-img'>
+              <div class='terminal-cert-label'>Red Fox Certification</div>
+            </div>
+            <div class='terminal-cert-card'>
+              <img src='tryhackmecert.png' alt='TryHackMe Certification' class='terminal-cert-img'>
+              <div class='terminal-cert-label'>TryHackMe Certification</div>
+            </div>
+            <div class='terminal-cert-card'>
+              <img src='pythoncert.png' alt='Python Certification' class='terminal-cert-img'>
+              <div class='terminal-cert-label'>Python Certification</div>
+            </div>
+            <div class='terminal-cert-card'>
+              <img src='blackhatcert.png' alt='BlackHat Certification' class='terminal-cert-img'>
+              <div class='terminal-cert-label'>BlackHat Certification</div>
+            </div>
+          </div>`;
+        }
+        // links.txt removed from VFS and terminal
+        if (arg === 'profile.txt') return `<div style='font-family:monospace; color:#ccf6ff;'>
+      <b>profile.txt</b><br>
+      Username: batmanphile<br>
+      Location: Addis Ababa, Ethiopia<br>
+      Interests: Cybersecurity, CTFs, coding, research<br>
+      GitHub: <a href='https://github.com/philemonsami' target='_blank' style='color:#64ffda;'>philemonsami</a><br>
+      LinkedIn: <a href='https://www.linkedin.com/in/philemonsami/' target='_blank' style='color:#64ffda;'>philemonsami</a><br>
+      PicoCTF: <a href='https://play.picoctf.org/users/batmanphile' target='_blank' style='color:#64ffda;'>batmanphile</a>
+      </div>`;
+        if (arg === 'graduation-files') {
+          return `<div class="graduation-files">
+            <img src='presidents.jpg' alt='presidents' class='hop-hover' style='max-width:180px;border-radius:10px;border:2px solid #64ffda;'>
+            <img src='us.jpg' alt='us' class='hop-hover' style='max-width:180px;border-radius:10px;border:2px solid #64ffda;'>
+            <img src='insagraduation.jpg' alt='INSA Graduation' class='hop-hover' style='max-width:180px;border-radius:10px;border:2px solid #64ffda;'>
+            <img src='atinsa.jpg' alt='At INSA' class='hop-hover' style='max-width:180px;border-radius:10px;border:2px solid #64ffda;'>
+          </div>`;
+        }
+      } else if (vfsPath.startsWith("/Phil's_works/")) {
+        if (arg === 'details.txt') {
+          const proj = vfsPath.split("/Phil's_works/")[1].replace('/', '');
+          return projectDetails[proj] || 'No details.';
+        }
+      }
+      return `No such file: ${arg}`;
+    }
+
+    function handleWget(arg) {
+      if (!arg) return 'Usage: wget [project]';
+
+      const githubRepos = {
+        'ctf-challenge-solutions': 'https://github.com/philemonsami/CTF-challenge-solution',
+        'ciphergravity-samuel-toolkit': 'https://github.com/philemonsami/CipherVisual-Samuel-Toolkit',
+        'secure-chat': 'https://github.com/philemonsami/Secure-Chat-application',
+        'network-intrusion-detection': 'https://github.com/philemonsami/Network-Intrusion-Detection-System--IDS--',
+        'password-cracker-tool': 'https://github.com/philemonsami/password-cracker-tool',
+        'waf-bypass': 'https://github.com/philemonsami/WAF-Bypass-Research'
+      };
+      if (vfsPath.startsWith("/Phil's_works/")) {
+        const proj = vfsPath.split("/Phil's_works/")[1].replace('/', '');
+        if (arg === proj && githubRepos[arg]) {
+          return `<span class='terminal-cmd'>[+] GitHub Repo:</span> <a href='${githubRepos[arg]}' class='terminal-link' target='_blank'>${githubRepos[arg]}</a>`;
+        }
+      }
+      return `No such project or not in project directory: ${arg}`;
+    }
+
+    function printToTerminal(html) {
+      const div = document.createElement('div');
+      div.className = 'terminal-output';
+      div.innerHTML = html;
+      terminalLog.appendChild(div);
+      terminalLog.scrollTop = terminalLog.scrollHeight;
+    }
+
+    terminalForm.addEventListener('submit', function() {
+      const value = terminalInput.value.trim();
+      if (!value) return;
+      const line = document.createElement('div');
+      line.className = 'terminal-line';
+      line.innerHTML = `<span class="prompt">kali@phili:${vfsPath}$</span> ${value}`;
+      terminalLog.appendChild(line);
+
+      const [cmd, ...args] = value.split(' ');
+      let output = '';
+      if (cmd === 'ls') {
+        output = getLsOutput();
+      } else if (cmd === 'cd') {
+        output = handleCd(args[0]);
+   
+        document.querySelectorAll('.prompt').forEach(p => p.textContent = `kali@phili:${vfsPath}$`);
+      } else if (cmd === 'cat') {
+        output = handleCat(args[0]);
+      } else if (cmd === 'wget') {
+        output = handleWget(args[0]);
+      } else if (cmd === 'help' || cmd === '--help') {
+        output = commands.help;
+      } else if (cmd === 'clear') {
+        terminalLog.innerHTML = '';
+        terminalInput.value = '';
+        return;
+      } else if (cmd === 'video') {
+        output = commands.video;
+      } else {
+        output = `Command not found. Type <span class="terminal-cmd">help</span> for available commands.`;
+      }
+      if (output) printToTerminal(output);
+      terminalInput.value = '';
+      terminalLog.scrollTop = terminalLog.scrollHeight;
+    });
 
     function printToTerminal(html) {
       const div = document.createElement('div');
