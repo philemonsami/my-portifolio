@@ -1,246 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Philemon Samuel - Cybersecurity professional, ethical hacker, and code architect. Certified Web Pentester, CTF competitor, and Python learner.">
-  <title>Phili - Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #0a0c10;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      color: #eef2ff;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 100px 1.5rem 2rem;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(8px);
-      padding: 10px;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(100, 255, 218, 0.2);
-    }
-    nav a {
-      color: #64ffda;
-      margin: 0 15px;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: bold;
-      letter-spacing: 0.07rem;
-      transition: color 0.25s ease, transform 0.25s ease;
-    }
-    nav a:hover {
-      color: #fff;
-      transform: translateY(-1px);
-    }
-    nav a:hover {
-      color: #fff;
-      transform: translateY(-1px);
-    }
-
-    .hero {
-      margin-bottom: 4rem;
-      background: radial-gradient(circle at 20% 30%, rgba(30, 40, 60, 0.5), transparent);
-      padding: 1.5rem 0;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      background: linear-gradient(to right, #ffffff, #a0f0ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #b4c2da;
-      max-width: 700px;
-      margin-bottom: 1.5rem;
-    }
-
-    .media-box {
-      width: min(95%, 920px);
-      margin-top: 28px;
-      border: 1px solid rgba(100, 255, 218, 0.22);
-      box-shadow: 0 0 45px rgba(100, 255, 218, 0.2);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .media-box img {
-      width: 100%;
-      display: block;
-    }
-
-    .footer {
-      width: 100%;
-      padding: 18px 10px;
-      margin-top: 20px;
-      border-top: 1px solid rgba(100, 255, 218, 0.3);
-      text-align: center;
-      font-size: 0.9rem;
-      color: rgba(100, 255, 218, 0.8);
-    }
-    .footer a {
-      color: #64ffda;
-      text-decoration: underline;
-    }
-    .footer .socials {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 10px;
-    }
-    .footer .socials a {
-      text-decoration: none;
-    }
-
-    .cursor-droplet {
-      position: fixed;
-      pointer-events: none;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(100, 255, 218, 0.9);
-      box-shadow: 0 0 16px rgba(100, 255, 218, 0.8), 0 0 30px rgba(0, 122, 255, 0.45);
-      transform: translate(-50%, -50%) scale(0.9);
-      animation: trail 0.6s ease-out forwards;
-    }
-
-    @keyframes trail {
-      0% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
-    }
-
-    @media (max-width: 680px) {
-      .container {
-        padding: 100px 1.5rem 2rem;
-      }
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      nav {
-        font-size: 12px;
-      }
-    }
-  </style>
+  <meta name="description"
+    content="Philemon Samuel - Cybersecurity professional, ethical hacker, and code architect. Certified Web Pentester, CTF competitor.">
+  <title>Phili · Cyber Portfolio</title>
+  <link rel="stylesheet" href="index.css">
 </head>
-<body>
-  <div class="container">
-    <nav>
-        <a href="index.html">Phili</a>
-        <a href="ops.html">Ops</a>
-        <a href="intel.html">Intel</a>
-        <a href="exploits.html">Exploits</a>
-        <a href="contact.html">Contact</a>
-    </nav>
 
-    <div class="hero">
-      <p class="subtitle" style="font-size: 0.9rem; letter-spacing: 0.3rem; margin-bottom: 20px; color: #64ffda;">SYSTEM: PHILI ✱ KALI REALM</p>
-      <h1>PHILEMON<br>SAMUEL</h1>
+<body>
+  <canvas id="matrix-canvas" class="matrix-bg"></canvas>
+
+  <nav>
+    <a href="index.html">Phili</a>
+    <a href="ops.html">Ops</a>
+    <a href="intel.html">Intel</a>
+    <a href="exploits.html">Exploits</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <div class="hero" id="about">
+
+      <div id="terminal-nav" class="internal-nav">
+        <a href="#about" class="sys-link">[root@about:~]#</a>
+        <a href="#projects" class="sys-link">[root@projects:~]#</a>
+        <a href="#media" class="sys-link">[root@media:~]#</a>
+      </div>
+
+      <div class="badge">⚡ SYSTEM: PHILI // KALI REALM</div>
+      <h1 id="typewriter" class="hacker-text" data-value=""></h1>
       <p>Attack surface hardening • blue team evasion • secure data exfiltration</p>
       <p>CyberSecurity by night, code architect and highschool student by day — Philemon Samuel.</p>
-      <p>Certified Web Pentester • CTF Competitor • Python Learner</p>
-      <div class="media-box">
-        <img src="insagraduation.jpg" alt="INSA Ethical Hacker Certification">
+      <div class="cert-badge">🎓 Certified Web Pentester • CTF Competitor • Python Learner</div>
+      <div class="media-box glitch-wrapper" id="media">
+        <img src="insagraduation.jpg" alt="INSA Ethical Hacker Certification" class="glitch-img">
       </div>
     </div>
 
+    
+    <div class="terminal-container" id="terminal">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="btn red"></span>
+          <span class="btn yellow"></span>
+          <span class="btn green"></span>
+          <span class="title">kali@phili: ~</span>
+        </div>
+        <div class="terminal-body" id="term-body">
+          <p><span class="prompt">kali@phili:~$</span> whoami</p>
+          <p class="output">philemon_samuel<br>role: offensive_security_architect<br>status: highly_motivated</p>
+          <p><span class="prompt">kali@phili:~$</span> ./check_skills.sh</p>
+          <p class="output blink-cursor" id="term-type"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title" id="projects">🔍 explore my work</div>
+    <div class="link-grid">
+      <a href="ops.html" class="quick-link">🛠️ Offensive Ops</a>
+      <a href="intel.html" class="quick-link">📡 Threat Intel</a>
+      <a href="exploits.html" class="quick-link">💀 Exploit Database</a>
+      <a href="contact.html" class="quick-link">📬 Connect</a>
+    </div>
+
     <div class="footer">
-      © 2026 Philemon Samuel
+      © 2026 Philemon Samuel · security mindset
       <div class="socials">
-        <a href="https://github.com/philemonsami" target="_blank" rel="noopener"><img src="https://cdn.worldvectorlogo.com/logos/github-icon.svg" alt="GitHub" width="24" height="24"></a>
-        <a href="https://www.linkedin.com/in/philemonsami/" target="_blank" rel="noopener"><img src="https://cdn.worldvectorlogo.com/logos/linkedin-icon.svg" alt="LinkedIn" width="24" height="24"></a>
-        <a href="https://play.picoctf.org/users/batmanphile" target="_blank" rel="noopener"><img src="https://picoctf.org/static/img/logo.png" alt="PicoCTF" width="24" height="24"></a>
+        <a href="https://github.com/philemonsami" target="_blank" rel="noopener"><img
+            src="https://cdn.worldvectorlogo.com/logos/github-icon.svg" alt="GitHub" width="24" height="24"></a>
+        <a href="https://www.linkedin.com/in/philemonsami/" target="_blank" rel="noopener"><img
+            src="https://cdn.worldvectorlogo.com/logos/linkedin-icon.svg" alt="LinkedIn" width="24" height="24"></a>
+        <a href="https://play.picoctf.org/users/batmanphile" target="_blank" rel="noopener"><img
+            src="https://picoctf.org/static/img/logo.png" alt="PicoCTF" width="24" height="24"></a>
       </div>
     </div>
   </div>
 
   <script>
-    document.body.addEventListener('mousemove', (event) => {
+    const text = "PHILEMON SAMUEL";
+    let i = 0;
+    let isDeleting = false;
+    const typingSpeed = 120;
+    const deleteSpeed = 80;
+    const pause = 2000;
+    const el = document.getElementById("typewriter");
+    function typeEffect() {
+      if (!isDeleting && i <= text.length) {
+        el.textContent = text.substring(0, i);
+        i++;
+        setTimeout(typeEffect, typingSpeed);
+      } else if (isDeleting && i >= 0) {
+        el.textContent = text.substring(0, i);
+        i--;
+        setTimeout(typeEffect, deleteSpeed);
+      } else if (i === text.length + 1) {
+        isDeleting = true;
+        setTimeout(typeEffect, pause);
+      } else if (i === 0 && isDeleting) {
+        isDeleting = false;
+        setTimeout(typeEffect, typingSpeed);
+      } else {
+        setTimeout(typeEffect, typingSpeed);
+      }
+    }
+    typeEffect();
+
+    document.body.addEventListener('mousemove', (e) => {
       const dot = document.createElement('div');
       dot.className = 'cursor-droplet';
-      dot.style.left = event.clientX + 'px';
-      dot.style.top = event.clientY + 'px';
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
       document.body.appendChild(dot);
-      setTimeout(() => dot.remove(), 600);
+      setTimeout(() => dot.remove(), 500);
     });
   </script>
+
+  <script src="hacker-effects.js"></script>
 </body>
-</html>
-                let vx = Number(p.dataset.vx);
-                let vy = Number(p.dataset.vy);
-                const rect = p.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2 - window.innerWidth / 2;
-                const centerY = rect.top + rect.height / 2 - window.innerHeight / 2;
 
-                ({x: vx, y: vy} = gravity(centerX, centerY, vx, vy));
-                p.dataset.vx = vx;
-                p.dataset.vy = vy;
-
-                p.style.left = (rect.left + vx) + 'px';
-                p.style.top = (rect.top + vy) + 'px';
-
-                let life = Number(p.dataset.life) - 1;
-                p.dataset.life = life;
-                if (life <= 0){
-                    p.remove();
-                    return false;
-                }
-                return true;
-            });
-            requestAnimationFrame(animateParticles);
-        }
-
-        requestAnimationFrame(animateParticles);
-    </script>
-    <script>
-        const typewriterElement = document.getElementById('typewriter');
-        const text = 'PHILEMON SAMUEL';
-        let index = 0;
-        let isDeleting = false;
-        const typingSpeed = 150;
-        const deletingSpeed = 100;
-        const pauseTime = 2000;
-
-        function typeWriter() {
-            if (!isDeleting) {
-                typewriterElement.textContent = text.substring(0, index + 1);
-                index++;
-                if (index === text.length) {
-                    isDeleting = true;
-                    setTimeout(typeWriter, pauseTime);
-                    return;
-                }
-            } else {
-                typewriterElement.textContent = text.substring(0, index);
-                index--;
-                if (index === 0) {
-                    isDeleting = false;
-                }
-            }
-            setTimeout(typeWriter, isDeleting ? deletingSpeed : typingSpeed);
-        }
-
-        typeWriter();
-    </script>
-</body>
 </html>
